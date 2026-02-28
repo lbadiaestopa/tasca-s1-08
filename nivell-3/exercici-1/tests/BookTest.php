@@ -13,13 +13,13 @@ class BookTest extends TestCase
         "1984",
         "George Orwell",
         "1234567890",
-        "Distopia",
+        Genre::Distopia,
         328
     );
         $this->assertSame("1984", $book->getTitle());
         $this->assertEquals("George Orwell", $book->getAuthor());
         $this->assertEquals("1234567890", $book->getISBN());
-        $this->assertEquals("Distopia", $book->getGenre());
+        $this->assertEquals(Genre::Distopia, $book->getGenre());
         $this->assertEquals(328, $book->getPages());
     }
 }

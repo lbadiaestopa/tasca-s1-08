@@ -30,9 +30,8 @@ class LibraryTest extends TestCase
         $book = new Book("1984", "George Orwell", "1234567890", Genre::Distopia, 328);
 
         $library->addBook($book);
-        $library->removeBook(0);
 
-        $this->assertSame(0, $library->countBooks());
+        $this->assertTrue($library->removeBook($book));
     }
 
     public function testCanFindBookByTitle()

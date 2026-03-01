@@ -11,7 +11,8 @@ class Library
         $this->books = [];
     }
 
-    public function countBooks(): int {
+    public function countBooks(): int
+    {
         $totalBooks = 0;
         foreach ($this->books as $book) {
             $totalBooks++;
@@ -19,14 +20,25 @@ class Library
         return $totalBooks;
     }
 
-    public function addBook(Book $book) 
+    public function addBook(Book $book)
     {
-        $this->books = [$book];
+        $this->books[] = $book;
     }
 
-    public function removeBook(int $index) 
+    public function removeBook(int $index)
     {
         unset($this->books[$index]);
         $this->books = array_values($this->books);
+    }
+
+    public function findBookByISBN(int $ISBN)
+    {
+        foreach ($this->books as $book) {
+            if ($book->getISBN() === $ISBN) 
+            {
+                return $book;
+            }
+        }
+        return null;
     }
 }

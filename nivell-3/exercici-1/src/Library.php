@@ -31,6 +31,17 @@ class Library
         $this->books = array_values($this->books);
     }
 
+    public function findBookByTitle(string $title)
+    {
+        foreach ($this->books as $book) {
+            if ($book->getTitle() === $title) 
+            {
+                return $book;
+            }
+        }
+        return null;
+    }
+
     public function findBookByISBN(int $ISBN)
     {
         foreach ($this->books as $book) {

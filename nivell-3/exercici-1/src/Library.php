@@ -13,11 +13,7 @@ class Library
 
     public function countBooks(): int
     {
-        $totalBooks = 0;
-        foreach ($this->books as $book) {
-            $totalBooks++;
-        }
-        return $totalBooks;
+        return count($this->books);
     }
 
     public function addBook(Book $book)

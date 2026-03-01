@@ -61,7 +61,7 @@ class Library
         return null;
     }
 
-     public function findBookByAuthor(string $author)
+    public function findBookByAuthor(string $author)
     {
         $booksByAuthor = [];
         foreach ($this->books as $book) {
@@ -71,5 +71,17 @@ class Library
             }     
         }
         return $booksByAuthor;
+    }
+
+    public function filterBookByPages()
+    {
+        $longBooks = [];
+        foreach ($this->books as $book) {
+            if ($book->getPages() >= 500) 
+            {
+                $longBooks[] = $book;   
+            }     
+        }
+        return $longBooks;
     }
 }

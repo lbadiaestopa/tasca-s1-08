@@ -44,14 +44,14 @@ class Library
 
     public function findBookByGenre(Genre $genre)
     {
-        $booksByGenre = [];
+        $booksByAuthor = [];
         foreach ($this->books as $book) {
             if ($book->getGenre() === $genre) 
             {
-                $booksByGenre[] = $book;   
+                $booksByAuthor[] = $book;   
             }     
         }
-        return $booksByGenre;
+        return $booksByAuthor;
     }
 
     public function findBookByISBN(int $ISBN)
@@ -63,5 +63,17 @@ class Library
             }
         }
         return null;
+    }
+
+     public function findBookByAuthor(string $author)
+    {
+        $booksByAuthor = [];
+        foreach ($this->books as $book) {
+            if ($book->getAuthor() === $author) 
+            {
+                $booksByAuthor[] = $book;   
+            }     
+        }
+        return $booksByAuthor;
     }
 }

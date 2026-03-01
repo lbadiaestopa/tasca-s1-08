@@ -14,7 +14,7 @@ class LibraryTest extends TestCase
         $this->assertEmpty($library->countBooks());
     }
 
-    public function testCanAddBooks()
+    public function testCanAddBook()
     {
         $library = new Library();
         $book = new Book("1984", "George Orwell", "1234567890", Genre::Distopia, 328);
@@ -24,7 +24,7 @@ class LibraryTest extends TestCase
         $this->assertSame(1, $library->countBooks());
     }
 
-    public function testCanRemoveBooks()
+    public function testCanRemoveBook()
     {
         $library = new Library();
         $book = new Book("1984", "George Orwell", "1234567890", Genre::Distopia, 328);
@@ -35,4 +35,25 @@ class LibraryTest extends TestCase
         $this->assertSame(0, $library->countBooks());
     }
 
+    public function testCanFindBookByISBN()
+    {
+        $library = new Library();
+        $book1 = new Book("1984", "George Orwell", 1234567890, Genre::Distopia, 328);
+        $book2 = new Book("El Petit Príncep", "Antoine de Saint-Exupéry", 2345678901, Genre::Conte, 96);
+        $book3 = new Book("Dune", "Frank Herbert", 3456789012, Genre::CF, 412);
+        $book4 = new Book("Sherlock Holmes: Estudi en Escarlata", "Arthur Conan Doyle", 4567890123, Genre::NP, 188);
+        $book5 = new Book("Harry Potter i la Pedra Filosofal", "J.K. Rowling", 5678901234, Genre::Fantàstic, 223);
+        
+
+        $library->addBook($book1);
+        $library->addBook($book2);
+        $library->addBook($book3);
+        $library->addBook($book4);
+        $library->addBook($book5);
+
+        $library->findBookByISBN(3456789012);
+
+
+        $this->assertSame("Dune", $library->findBookByISBN());
+    }
 }

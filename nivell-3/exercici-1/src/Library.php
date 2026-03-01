@@ -42,6 +42,18 @@ class Library
         return null;
     }
 
+    public function findBookByGenre(Genre $genre)
+    {
+        $booksByGenre = [];
+        foreach ($this->books as $book) {
+            if ($book->getGenre() === $genre) 
+            {
+                $booksByGenre[] = $book;   
+            }     
+        }
+        return $booksByGenre;
+    }
+
     public function findBookByISBN(int $ISBN)
     {
         foreach ($this->books as $book) {

@@ -21,17 +21,23 @@ class Library
         $this->books[] = $book;
     }
 
-    public function removeBook(int $index)
+    public function removeBook(Book $book): bool
     {
-        unset($this->books[$index]);
-        $this->books = array_values($this->books);
+        foreach ($this->books as $index => $b) {
+            if ($b === $book) {
+                unset($this->books[$index]);
+                $this->books = array_values($this->books);
+                return true; 
+            }
+        }
+
+        return false;
     }
 
     public function findBookByTitle(string $title)
     {
         foreach ($this->books as $book) {
-            if ($book->getTitle() === $title) 
-            {
+            if ($book->getTitle() === $title) {
                 return $book;
             }
         }
@@ -42,10 +48,9 @@ class Library
     {
         $booksByGenre = [];
         foreach ($this->books as $book) {
-            if ($book->getGenre() === $genre) 
-            {
-                $booksByGenre[] = $book;   
-            }     
+            if ($book->getGenre() === $genre) {
+                $booksByGenre[] = $book;
+            }
         }
         return $booksByGenre;
     }
@@ -53,8 +58,7 @@ class Library
     public function findBookByISBN(int $ISBN)
     {
         foreach ($this->books as $book) {
-            if ($book->getISBN() === $ISBN) 
-            {
+            if ($book->getISBN() === $ISBN) {
                 return $book;
             }
         }
@@ -65,10 +69,9 @@ class Library
     {
         $booksByAuthor = [];
         foreach ($this->books as $book) {
-            if ($book->getAuthor() === $author) 
-            {
-                $booksByAuthor[] = $book;   
-            }     
+            if ($book->getAuthor() === $author) {
+                $booksByAuthor[] = $book;
+            }
         }
         return $booksByAuthor;
     }
@@ -77,10 +80,9 @@ class Library
     {
         $longBooks = [];
         foreach ($this->books as $book) {
-            if ($book->getPages() >= 500) 
-            {
-                $longBooks[] = $book;   
-            }     
+            if ($book->getPages() >= 500) {
+                $longBooks[] = $book;
+            }
         }
         return $longBooks;
     }

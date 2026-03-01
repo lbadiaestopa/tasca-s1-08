@@ -51,9 +51,6 @@ class LibraryTest extends TestCase
         $library->addBook($book4);
         $library->addBook($book5);
 
-        $library->findBookByISBN(3456789012);
-
-
-        $this->assertSame("Dune", $library->findBookByISBN());
+        $this->assertSame("Dune", $library->findBookByISBN(3456789012));
     }
 }

@@ -70,7 +70,7 @@ class LibraryTest extends TestCase
         $library->addBook($book4);
         $library->addBook($book5);
 
-        $this->assertSame($book4, $library->findBookByGenre(Genre::NP));
+        $this->assertSame($book4, $library->findBookByGenre(Genre::NP)[0]);
     }
 
     public function testCanFindBookByISBN()

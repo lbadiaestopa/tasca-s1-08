@@ -86,4 +86,9 @@ class Library
         }
         return $longBooks;
     }
+
+    public function getBooks()
+    {
+        return $this->books;
+    }
 }

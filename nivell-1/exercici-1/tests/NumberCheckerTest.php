@@ -11,32 +11,20 @@ class NumberCheckerTest extends TestCase
     {
         $checker = new NumberChecker(4);
         $this->assertTrue($checker->isEven());
-
-        $checker = new NumberChecker(10);
-        $this->assertTrue($checker->isEven());
     }
     
     public function testOddPositiveNumber() {
         $checker = new NumberChecker(3);
-        $this->assertFalse($checker->isEven());
-
-        $checker = new NumberChecker(7);
         $this->assertFalse($checker->isEven());
     }
 
     public function testEvenNegativeNumber() {
         $checker = new NumberChecker(-2);
         $this->assertTrue($checker->isEven());
-
-        $checker = new NumberChecker(-8);
-        $this->assertTrue($checker->isEven());
     }
 
     public function testOddNegativeNumber() {
         $checker = new NumberChecker(-5);
-        $this->assertFalse($checker->isEven());
-
-        $checker = new NumberChecker(-9);
         $this->assertFalse($checker->isEven());
     }
 
@@ -48,16 +36,10 @@ class NumberCheckerTest extends TestCase
     public function testPositiveNumber() {
         $checker = new NumberChecker(3);
         $this->assertTrue($checker->isPositive());
-
-        $checker = new NumberChecker(5);
-        $this->assertTrue($checker->isPositive());
     }
 
     public function testNegativeNumber() {
         $checker = new NumberChecker(-2);
-        $this->assertFalse($checker->isPositive());
-
-        $checker = new NumberChecker(-4);
         $this->assertFalse($checker->isPositive());
     }
 

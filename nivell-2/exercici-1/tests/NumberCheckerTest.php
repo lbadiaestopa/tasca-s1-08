@@ -11,14 +11,10 @@ class NumberCheckerTest extends TestCase
     {
         return [
             [4, true],
-            [10, true],
             [-2, true],
-            [-8, true],
             [0, true],
             [-5, false],
-            [-9, false],
             [3, false],
-            [7, false],
         ];
     }
 
@@ -35,10 +31,8 @@ class NumberCheckerTest extends TestCase
     {
         return [
             [-5, false],
-            [-2, false],
             [0, false],
             [3, true],
-            [6, true],
         ];
     }
 

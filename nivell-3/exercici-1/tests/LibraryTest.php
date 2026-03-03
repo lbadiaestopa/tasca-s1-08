@@ -21,7 +21,7 @@ class LibraryTest extends TestCase
 
         $library->addBook($book);
 
-        $this->assertSame(1, $library->countBooks());
+        $this->assertContains($book, $library->getBooks());
     }
 
     public function testCanRemoveBook()
